@@ -2,4 +2,6 @@ from django.contrib import admin
 from .models import *
 
 # Register your models here.
-admin.site.register([Tournament, Team, Player, Coach, Game, GameStat, PlayerStat])
+admin.site.register(
+    [Tournament, Team, Player, Coach, Game, GameStat, PlayerStat, UserRole]
+)
