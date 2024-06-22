@@ -3,6 +3,7 @@ from django.urls import path
 from .views import teamviews
 from .views import playerviews
 from .views import tournamentviews
+from .views import coachviews
 
 urlpatterns = [
     # Tournament and games related end points including scoreboard
@@ -22,4 +23,6 @@ urlpatterns = [
     ),
     # Player related endpoints
     path("players/<int:pk>/", playerviews.PlayerDetail.as_view()),
+    # Coach related end points
+    path("coaches/", coachviews.CoachList.as_view()),
 ]
