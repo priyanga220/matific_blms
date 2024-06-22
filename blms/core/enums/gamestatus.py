@@ -1,6 +1,7 @@
-from enum import Enum
+from enumchoicefield import ChoiceEnum
 
-class GameStatus(Enum):
+
+class GameStatus(ChoiceEnum):
     SC = "Scheduled"
     PL = "Playing"
     AB = "Abandoned"

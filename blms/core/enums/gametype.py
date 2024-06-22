@@ -1,6 +1,7 @@
-from enum import Enum
+from enumchoicefield import ChoiceEnum
 
-class GameType(Enum):
+
+class GameType(ChoiceEnum):
     QU = "Qulifier"
     QF = "Quater Final"
     SF = "Semi Final"
