@@ -9,7 +9,7 @@ from django.contrib.auth import logout
 from ..services import UserService
 
 
-class CustomAuthToken(ObtainAuthToken):
+class Authentication(ObtainAuthToken):
     userservice = UserService()
 
     def post(self, request, *args, **kwargs):

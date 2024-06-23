@@ -7,9 +7,9 @@ from django.contrib.contenttypes.models import ContentType
 class UserRole(models.Model):
 
     # Fields for ROLES
-    ADMIN = "ADM"
-    COACH = "COA"
-    PLAYER = "PLY"
+    ADMIN = 0
+    COACH = 1
+    PLAYER = 2
 
     ROLE_CHOICES = ((ADMIN, "Admin"), (COACH, "Coach"), (PLAYER, "Player"))
 
@@ -18,9 +18,8 @@ class UserRole(models.Model):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey()
 
-    userrole = models.CharField(max_length=3, choices=ROLE_CHOICES)
+    userrole = models.IntegerField(max_length=2, choices=ROLE_CHOICES)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    is_logged_in = models.BooleanField(default=False)
 
     def __str__(self):
         return str(f"{self.user.normalize_username} - {self.userrole}")

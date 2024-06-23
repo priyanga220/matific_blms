@@ -49,7 +49,6 @@ class UserService:
             )
             .order_by("totallogins")
         )
-        print(f"SAMASMASMAMSA  ===> {samples}")
         return samples
 
     def loadOnlineUsers(self):

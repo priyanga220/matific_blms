@@ -1,16 +1,20 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from core.models import Coach
+from core.models import Coach, UserRole
 from ..serializers import CoachSerializerFull
+from ..decorators import has_permission
+from django.utils.decorators import method_decorator
 
 
 class CoachList(APIView):
+    @method_decorator(has_permission([UserRole.ADMIN]))
     def get(self, request, format=None):
         coaches = Coach.objects.all()
         serializer = CoachSerializerFull(coaches, many=True)
         return Response(serializer.data)
 
+    @method_decorator(has_permission([UserRole.ADMIN]))
     def post(self, request, format=None):
         serializer = CoachSerializerFull(data=request.data)
         if serializer.is_valid():
