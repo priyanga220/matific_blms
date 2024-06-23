@@ -301,6 +301,226 @@ URIs .
                                         "rank": 3
                                     }
                                 ]
+                                
+7. Team Details with average score
+         
+        HTTP Method     :   GET                                  
+
+        URI             :   /api/v1/teams/<teamid>
+        
+        Request         :   -
+        
+                            Header => Authorization : Token <tokenvalue>
+        
+        Response        :       {
+                                    "teamid": 1,
+                                    "name": "Black Panthers",
+                                    "displayname": "BLKP",
+                                    "slogan": "U Can't C M@",
+                                    "rank": 1,
+                                    "average_score": 68.75
+                                }
+                                
+8. List players for team
+         
+        HTTP Method     :   GET                                  
+
+        URI             :   /api/v1/teams/<teamid>/players
+        
+        Request         :   -
+        
+                            Header => Authorization : Token <tokenvalue>
+        
+        Response        :       [
+                                    {
+                                        "id": 1,
+                                        "display_name": "Deems W.",
+                                        "height": 6.8,
+                                        "rank": 10
+                                    },
+                                    {
+                                        "id": 2,
+                                        "display_name": "Jonas Jr.",
+                                        "height": 6.8,
+                                        "rank": null
+                                    },
+                                    {
+                                        "id": 3,
+                                        "display_name": "Temba B.",
+                                        "height": 6.1,
+                                        "rank": null
+                                    }
+                                ]
+                                
+8. List players with for team whose average score is in the 90
+percentile across the team
+         
+        HTTP Method     :   GET                                  
+
+        URI             :   /api/v1/teams/<teamid>/avgpercentileplayers/?percentile=<percentilevalue>
+        
+                            NOTE : percentile query param is Optional [default=90]
+        
+        Request         :   -
+        
+                            Header => Authorization : Token <tokenvalue>
+                            
+                            Query parameter => percentile  : Optional, if not provide it defaults to 90th percentile
+                                        
+                                            
+        
+        Response        :       [
+                                    {
+                                        "id": 1,
+                                        "display_name": "Deems W.",
+                                        "height": 6.8,
+                                        "rank": 10
+                                    }
+                                ]
+                                
+9. Player details - including avg score and no. of games played
+         
+        HTTP Method     :   GET                                  
+
+        URI             :   /api/v1/players/<playerid>
+        
+        Request         :   -
+        
+                            Header => Authorization : Token <tokenvalue>
+                                                            
+                                            
+        
+        Response        :       {
+                                    "playerid": 1,
+                                    "name": "Will Deems",
+                                    "display_name": "Deems W.",
+                                    "height": 6.8,
+                                    "average_score": 115.0,
+                                    "num_of_games_played": 2
+                                }
+                                
+8. User stats
+         
+        HTTP Method     :   GET                                  
+
+        URI             :   /api/v1/userstats
+        
+        Request         :   -
+        
+                            Header => Authorization : Token <tokenvalue>
+                                        
+                                            
+        
+        Response        :       [
+                                    {
+                                        "userid": "2",
+                                        "first_name": "Amarakoon",
+                                        "last_name": "Amarakoon",
+                                        "username": "priyanga220@gmail.com",
+                                        "user_role": 2,
+                                        "totallogins": 2,
+                                        "totaltime": "08:53:38.573235"
+                                    },
+                                    {
+                                        "userid": "4",
+                                        "first_name": "Coach2",
+                                        "last_name": "Coach2",
+                                        "username": "coach2",
+                                        "user_role": 4,
+                                        "totallogins": 2,
+                                        "totaltime": "09:32:29.486256"
+                                    },
+                                    {
+                                        "userid": "1",
+                                        "first_name": "",
+                                        "last_name": "",
+                                        "username": "django-admin",
+                                        "user_role": 1,
+                                        "totallogins": 7,
+                                        "totaltime": "09:10:04.090022"
+                                    },
+                                    {
+                                        "userid": "3",
+                                        "first_name": "DFG",
+                                        "last_name": "DFG",
+                                        "username": "Player1",
+                                        "user_role": 3,
+                                        "totallogins": 13,
+                                        "totaltime": "13:53:33.182000"
+                                    }
+                                ]
+    
+9. Online Users
+         
+        HTTP Method     :   GET                                  
+
+        URI             :   /api/v1/onlineusers
+        
+        Request         :   -
+        
+                            Header => Authorization : Token <tokenvalue>
+                                        
+                                            
+        
+        Response        :       [
+                                    {
+                                        "first_name": "Dh",
+                                        "last_name": "DFG",
+                                        "email": "per@gmail.com",
+                                        "username": "Player1"
+                                    },
+                                    {
+                                        "first_name": "Priyanga",
+                                        "last_name": "Amarakoon",
+                                        "email": "priyanga220@gmail.com",
+                                        "username": "priyanga220@gmail.com"
+                                    },
+                                    {
+                                        "first_name": "",
+                                        "last_name": "",
+                                        "email": "priyanga220@gmail.com",
+                                        "username": "django-admin"
+                                    }
+                                ]
+                                
+10. Coaches list
+         
+        HTTP Method     :   GET                                  
+
+        URI             :   /api/v1/coaches
+        
+        Request         :   -
+        
+                            Header => Authorization : Token <tokenvalue>
+                                        
+                                            
+        
+        Response        :      [
+                                    {
+                                        "name": "Dave Wilson",
+                                        "team": "Black Panthers",
+                                        "created_date": "2024-06-19T06:49:06.173000Z"
+                                    },
+                                    {
+                                        "name": "Dave Halfmore",
+                                        "team": "Super Giants",
+                                        "created_date": "2024-06-19T07:29:11.610000Z"
+                                    },
+                                    {
+                                        "name": "Rahul David",
+                                        "team": "West Indies Super10",
+                                        "created_date": "2024-06-19T06:49:06.173000Z"
+                                    },
+                                    .
+                                    .
+                                    .
+                                    {
+                                        "name": "Harry Kat",
+                                        "team": null,
+                                        "created_date": "2024-06-19T06:49:06.173000Z"
+                                    }
+                                ]
+    
            
         
     
