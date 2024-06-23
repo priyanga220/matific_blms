@@ -18,7 +18,7 @@ class UserRole(models.Model):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey()
 
-    userrole = models.IntegerField(max_length=2, choices=ROLE_CHOICES)
+    userrole = models.IntegerField(choices=ROLE_CHOICES)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
     def __str__(self):
