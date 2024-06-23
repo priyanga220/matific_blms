@@ -1,5 +1,5 @@
-"blms" application for basketball league management
-Provides below features:
+"blms" application for basketball league management Provides below features:
+
     1. League related
     * Tournament data
     * Games for tournament
@@ -67,6 +67,7 @@ DB : SQLite
     
     
 ER Diagram 
+
     * core_* tables for blms application data (core_tournament, core_team, core_game, core_coach, core_player, core_playerstat, core_gamestat)
     
     * auth_* tables from django framework for user and authentication management combined with core_userrole and core_userstat tables
@@ -90,6 +91,7 @@ ER Diagram
 
 
 Endpoints
+
     Implmented on rest api standards.
     
     Endpoints are secured and need to add Authentication token as below;
