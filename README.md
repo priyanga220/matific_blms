@@ -520,6 +520,20 @@ percentile across the team
                                         "created_date": "2024-06-19T06:49:06.173000Z"
                                     }
                                 ]
+                                
+                                
+
+
+
+Postman Test Collection:
+
+    * blms_local.postman_environment.json
+    * blms_matific.postman_collection.json
+    
+    1. Import the collection and environment into postman
+    2. Use blms_local environment 
+    3. Set the "host:p" appropriatly. 
+    4. Set the token recieved from authentication url into "auth_token".
     
            
         
