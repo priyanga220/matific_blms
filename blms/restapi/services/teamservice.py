@@ -37,6 +37,7 @@ class TeamService:
         self, teamId: int, percent: int
     ) -> list[Player]:
 
+        percent_i = int(percent)
         players = self.loadPlayerListForTeam(teamId).all()
         playerAvgScoreMap = {}
         for player in players:
@@ -48,7 +49,7 @@ class TeamService:
             )
 
         percentile_score: float = np.percentile(
-            list(playerAvgScoreMap.values()), percent
+            list(playerAvgScoreMap.values()), percent_i
         )
         abovepercentile_playerids = list(
             pid for (pid, avg) in playerAvgScoreMap.items() if avg >= percentile_score

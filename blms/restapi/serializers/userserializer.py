@@ -10,6 +10,8 @@ class UserstatSerializer(serializers.Serializer):
     user_role = serializers.ChoiceField(
         required=False, choices=UserRole.ROLE_CHOICES, source="user__userrole"
     )
+    totallogins = serializers.IntegerField(default=0)
+    totaltime = serializers.DurationField(default=0)
 
 
 class UserSerializer(serializers.Serializer):
