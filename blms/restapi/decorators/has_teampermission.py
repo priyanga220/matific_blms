@@ -20,6 +20,8 @@ def has_teampermission():
                         return HttpResponseForbidden(
                             "You don't have permission to access this team details"
                         )
+                else:
+                    return view_func(request, *args, **kwargs)
 
         return _wrapped_view
 
