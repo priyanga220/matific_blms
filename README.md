@@ -16,16 +16,20 @@
     * Team data restrictiononly for coach of the team
     * User stat view for admin
     
-How to run
+How to run  
 
-Python version used : 3.11.6
-DB : SQLite
+Python version used : 3.11.6  
+
+DB : SQLite  
 
 
-1. Checkout the repository;
+
+1. Checkout the repository;  
+
     >> git clone https://github.com/priyanga220/matific_blms.git
     
-2. cd into the folder
+2. cd into the folder  
+
     >> cd matific_blms
     
 3. Use the branch "feature/testDataWithApiAndAdminPanel" 
@@ -37,10 +41,15 @@ DB : SQLite
     >> pip3 install -r requirements.txt
     
 5. CD into the Project folder (blms) and Run migrations to apply changes and to create DB 
+
     >> cd blms
-    >> python3 manage.py migrate (python command change based on the OS)
     
-    This will create the required DB schema. (db.sqlite3)
+    >> python3 manage.py migrate 
+    (change python command based on the OS)  
+    
+    
+    This will create the required DB schema. (db.sqlite3)  
+    
     
 6. Load the test data from "testdata.json" file. This is located in core application inside fixtures folder
 
@@ -100,6 +109,9 @@ Endpoints
     2. Add Auth header:
         Header name     :   Authorization
         Header value    :   Toke <auth_token>
+        
+        
+    
 
     
     
