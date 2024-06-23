@@ -1,0 +1,805 @@
+[
+  {
+    "model": "auth.user",
+    "fields": {
+      "password": "pbkdf2_sha256$720000$c2UoKpZP91XEfhqAwjmVxo$niyMzBiE40fT3X4aBhLpH2esbDxnAUU60ha+B25ENDI=",
+      "last_login": "2024-06-22T05:44:34.165Z",
+      "is_superuser": true,
+      "username": "django-admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "priyanga220@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-06-22T05:43:26.175Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "fields": {
+      "password": "pbkdf2_sha256$720000$04dejyQIqEPCH0aeheLZMK$2PBxaUMKD4BNqQGqjVulzucdL//C7BJhI6hpwe4OKJM=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "priyanga220@gmail.com",
+      "first_name": "Priyanga",
+      "last_name": "Amarakoon",
+      "email": "priyanga220@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-06-22T10:17:42Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "fields": {
+      "password": "pbkdf2_sha256$720000$xtqQFHT96F06XNQJlQCXUh$qDM/YrS9hLlhepz2zy/Lh2r97qfWmPuxrc344Udj6LM=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Player1",
+      "first_name": "Dh",
+      "last_name": "DFG",
+      "email": "per@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-06-22T10:19:22Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "fields": {
+      "password": "pbkdf2_sha256$720000$Lo0VUOcygnqDpuNBkdGHQv$W1lJZF8oRicgBfXSXFV3LAjE7GgDrolKrBO/siRoQpg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "coach2",
+      "first_name": "Coach2",
+      "last_name": "Coach2",
+      "email": "coach2@gmal.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-06-23T07:07:12Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "core.tournament",
+    "pk": 1,
+    "fields": {
+      "name": "Wilson International World Cup",
+      "identifier": "WilsCup2024",
+      "mascot": "Crazy Frog",
+      "created_date": "2024-06-19T07:44:40.904Z"
+    }
+  },
+  {
+    "model": "core.tournament",
+    "pk": 2,
+    "fields": {
+      "name": "Shgner Cup",
+      "identifier": "Shgner2024",
+      "mascot": "Mow Mow",
+      "created_date": "2024-06-21T07:44:40.904Z"
+    }
+  },
+  {
+    "model": "core.userrole",
+    "pk": 1,
+    "fields": {
+      "content_type": [
+        "auth",
+        "user"
+      ],
+      "object_id": 1,
+      "userrole": 0,
+      "user": [
+        "django-admin"
+      ]
+    }
+  },
+  {
+    "model": "core.userrole",
+    "pk": 2,
+    "fields": {
+      "content_type": [
+        "core",
+        "coach"
+      ],
+      "object_id": 1,
+      "userrole": 1,
+      "user": [
+        "priyanga220@gmail.com"
+      ]
+    }
+  },
+  {
+    "model": "core.userrole",
+    "pk": 3,
+    "fields": {
+      "content_type": [
+        "core",
+        "player"
+      ],
+      "object_id": 1,
+      "userrole": 2,
+      "user": [
+        "Player1"
+      ]
+    }
+  },
+  {
+    "model": "core.userrole",
+    "pk": 4,
+    "fields": {
+      "content_type": [
+        "core",
+        "coach"
+      ],
+      "object_id": 3,
+      "userrole": 1,
+      "user": [
+        "coach2"
+      ]
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 1,
+    "fields": {
+      "name": "Dave Wilson",
+      "created_date": "2024-06-19T06:49:06.173Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 2,
+    "fields": {
+      "name": "Dave Halfmore",
+      "created_date": "2024-06-19T07:29:11.610Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 3,
+    "fields": {
+      "name": "Rahul David",
+      "created_date": "2024-06-19T06:49:06.173Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 4,
+    "fields": {
+      "name": "Garald Matony",
+      "created_date": "2024-06-19T06:49:06.173Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 5,
+    "fields": {
+      "name": "Andrew Hamsy",
+      "created_date": "2024-06-19T07:29:11.610Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 6,
+    "fields": {
+      "name": "Krut Mack",
+      "created_date": "2024-06-19T06:49:06.173Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 7,
+    "fields": {
+      "name": "Bruce Simson",
+      "created_date": "2024-06-19T06:49:06.173Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 8,
+    "fields": {
+      "name": "Gary Bowdon",
+      "created_date": "2024-06-19T07:29:11.610Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 9,
+    "fields": {
+      "name": "Sam Curran",
+      "created_date": "2024-06-19T06:49:06.173Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 10,
+    "fields": {
+      "name": "Drick Nannes",
+      "created_date": "2024-06-19T06:49:06.173Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 11,
+    "fields": {
+      "name": "Rampul Mayu",
+      "created_date": "2024-06-19T07:29:11.610Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 12,
+    "fields": {
+      "name": "Dave Clearkson",
+      "created_date": "2024-06-19T06:49:06.173Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 13,
+    "fields": {
+      "name": "Robin Singh",
+      "created_date": "2024-06-19T06:49:06.173Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 14,
+    "fields": {
+      "name": "Mat Richardson",
+      "created_date": "2024-06-19T07:29:11.610Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 15,
+    "fields": {
+      "name": "Billy Bowden",
+      "created_date": "2024-06-19T06:49:06.173Z"
+    }
+  },
+  {
+    "model": "core.coach",
+    "pk": 16,
+    "fields": {
+      "name": "Harry Kat",
+      "created_date": "2024-06-19T06:49:06.173Z"
+    }
+  },
+  {
+    "model": "core.team",
+    "pk": 1,
+    "fields": {
+      "name": "Black Panthers",
+      "displayname": "BLKP",
+      "slogan": "U Can't C M@",
+      "rank": 1,
+      "coach": 1,
+      "created_date": "2024-06-18T14:22:53.799Z"
+    }
+  },
+  {
+    "model": "core.team",
+    "pk": 2,
+    "fields": {
+      "name": "Super Giants",
+      "displayname": "SDFG",
+      "slogan": "Nothing Stops US",
+      "rank": 2,
+      "coach": 2,
+      "created_date": "2024-06-18T15:18:19.084Z"
+    }
+  },
+  {
+    "model": "core.team",
+    "pk": 3,
+    "fields": {
+      "name": "West Indies Super10",
+      "displayname": "WIS10",
+      "slogan": "From Windies",
+      "rank": 3,
+      "coach": 3,
+      "created_date": "2024-06-19T20:42:25.430Z"
+    }
+  },
+  {
+    "model": "core.team",
+    "pk": 4,
+    "fields": {
+      "name": "Super Heros",
+      "displayname": "SHRS",
+      "slogan": "REscue the CUP",
+      "rank": 4,
+      "coach": 4,
+      "created_date": "2024-06-18T14:22:53.799Z"
+    }
+  },
+  {
+    "model": "core.team",
+    "pk": 5,
+    "fields": {
+      "name": "Thunders",
+      "displayname": "THRS",
+      "slogan": "Be Aware",
+      "rank": 5,
+      "coach": 5,
+      "created_date": "2024-06-18T15:18:19.084Z"
+    }
+  },
+  {
+    "model": "core.team",
+    "pk": 6,
+    "fields": {
+      "name": "Super Hits",
+      "displayname": "SHTS",
+      "slogan": "Hit, Hit, Hit",
+      "rank": 6,
+      "coach": 6,
+      "created_date": "2024-06-19T20:42:25.430Z"
+    }
+  },
+  {
+    "model": "core.team",
+    "pk": 7,
+    "fields": {
+      "name": "Trur Warriers",
+      "displayname": "TWRS",
+      "slogan": "We are TWRS",
+      "rank": 7,
+      "coach": 7,
+      "created_date": "2024-06-18T14:22:53.799Z"
+    }
+  },
+  {
+    "model": "core.team",
+    "pk": 8,
+    "fields": {
+      "name": "Super Giants",
+      "displayname": "SDFG",
+      "slogan": "Nothing Stops US",
+      "rank": 8,
+      "coach": 8,
+      "created_date": "2024-06-18T15:18:19.084Z"
+    }
+  },
+  {
+    "model": "core.team",
+    "pk": 9,
+    "fields": {
+      "name": "Country sides",
+      "displayname": "CSDS",
+      "slogan": "Yes We are",
+      "rank": 9,
+      "coach": 9,
+      "created_date": "2024-06-19T20:42:25.430Z"
+    }
+  },
+  {
+    "model": "core.team",
+    "pk": 10,
+    "fields": {
+      "name": "Boston Celtics",
+      "displayname": "BSCT",
+      "slogan": "Yeah",
+      "rank": 10,
+      "coach": 10,
+      "created_date": "2024-06-18T14:22:53.799Z"
+    }
+  },
+  {
+    "model": "core.player",
+    "pk": 1,
+    "fields": {
+      "name": "Will Deems",
+      "display_name": "Deems W.",
+      "team": 1,
+      "rank": 10,
+      "height": 6.8,
+      "created_date": "2024-06-19T09:34:18.392Z"
+    }
+  },
+  {
+    "model": "core.player",
+    "pk": 2,
+    "fields": {
+      "name": "Jonas Junior Mclemin",
+      "display_name": "Jonas Jr.",
+      "team": 1,
+      "rank": null,
+      "height": 6.8,
+      "created_date": "2024-06-19T09:35:01.434Z"
+    }
+  },
+  {
+    "model": "core.player",
+    "pk": 3,
+    "fields": {
+      "name": "Brendon Temba Gace",
+      "display_name": "Temba B.",
+      "team": 1,
+      "rank": null,
+      "height": 6.1,
+      "created_date": "2024-06-19T09:35:01.434Z"
+    }
+  },
+  {
+    "model": "core.game",
+    "pk": 1,
+    "fields": {
+      "game_level": "QU",
+      "game_status": "SC",
+      "tournament": 1,
+      "date": "2024-06-19T00:00:00Z",
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.game",
+    "pk": 2,
+    "fields": {
+      "game_level": "QU",
+      "game_status": "PL",
+      "tournament": 1,
+      "date": "2024-06-21T00:00:00Z",
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.game",
+    "pk": 3,
+    "fields": {
+      "game_level": "QU",
+      "game_status": "CR",
+      "tournament": 1,
+      "date": "2024-06-20T00:00:00Z",
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.game",
+    "pk": 4,
+    "fields": {
+      "game_level": "QU",
+      "game_status": "CR",
+      "tournament": 1,
+      "date": "2024-06-19T00:00:00Z",
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.gamestat",
+    "pk": 1,
+    "fields": {
+      "team": 1,
+      "game": 1,
+      "teamref": "wer",
+      "score": 100,
+      "iswinner": false,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.gamestat",
+    "pk": 2,
+    "fields": {
+      "team": 2,
+      "game": 1,
+      "teamref": "dse",
+      "score": 300,
+      "iswinner": false,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.gamestat",
+    "pk": 3,
+    "fields": {
+      "team": 1,
+      "game": 2,
+      "teamref": "tre",
+      "score": 96,
+      "iswinner": false,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.gamestat",
+    "pk": 4,
+    "fields": {
+      "team": 2,
+      "game": 2,
+      "teamref": "tyr",
+      "score": 43,
+      "iswinner": false,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.gamestat",
+    "pk": 5,
+    "fields": {
+      "team": 1,
+      "game": 3,
+      "teamref": "wer",
+      "score": 45,
+      "iswinner": false,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.gamestat",
+    "pk": 6,
+    "fields": {
+      "team": 2,
+      "game": 3,
+      "teamref": "dse",
+      "score": 45,
+      "iswinner": false,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.gamestat",
+    "pk": 7,
+    "fields": {
+      "team": 1,
+      "game": 4,
+      "teamref": "tre",
+      "score": 34,
+      "iswinner": false,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.gamestat",
+    "pk": 8,
+    "fields": {
+      "team": 3,
+      "game": 4,
+      "teamref": "tyr",
+      "score": 35,
+      "iswinner": false,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.playerstat",
+    "pk": 1,
+    "fields": {
+      "player": 1,
+      "game": 1,
+      "score": 80,
+      "impact_index": 95.0,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.playerstat",
+    "pk": 2,
+    "fields": {
+      "player": 1,
+      "game": 2,
+      "score": 150,
+      "impact_index": 60.0,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.playerstat",
+    "pk": 3,
+    "fields": {
+      "player": 2,
+      "game": 1,
+      "score": 90,
+      "impact_index": 34.0,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.playerstat",
+    "pk": 4,
+    "fields": {
+      "player": 3,
+      "game": 2,
+      "score": 30,
+      "impact_index": 45.0,
+      "created_date": "2024-06-19T07:53:35.936Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 1,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-22T12:48:51.627Z",
+      "logout_at": "2024-06-22T14:29:46.586Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 2,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-22T14:27:15.560Z",
+      "logout_at": "2024-06-22T14:29:46.589Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 3,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-22T14:29:46.590Z",
+      "logout_at": "2024-06-22T14:39:46.836Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 4,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-22T14:39:46.841Z",
+      "logout_at": "2024-06-22T14:45:40.520Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 5,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-22T14:45:40.522Z",
+      "logout_at": "2024-06-22T14:47:05.234Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 6,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-22T14:47:05.236Z",
+      "logout_at": "2024-06-22T14:47:13.889Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 7,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-22T17:01:33.578Z",
+      "logout_at": "2024-06-23T03:52:02.940Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 8,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-23T03:52:02.943Z",
+      "logout_at": "2024-06-23T03:53:06.069Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 9,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-23T03:53:20.803Z",
+      "logout_at": "2024-06-23T03:59:15.835Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 10,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-23T03:59:15.839Z",
+      "logout_at": "2024-06-23T03:59:17.700Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 11,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-23T03:59:17.701Z",
+      "logout_at": "2024-06-23T03:59:37.985Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 12,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-23T04:00:03.126Z",
+      "logout_at": "2024-06-23T04:54:53.365Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 13,
+    "fields": {
+      "user": [
+        "Player1"
+      ],
+      "login_at": "2024-06-23T04:54:53.368Z",
+      "logout_at": null
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 14,
+    "fields": {
+      "user": [
+        "coach2"
+      ],
+      "login_at": "2024-06-23T07:17:28.298Z",
+      "logout_at": null
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 15,
+    "fields": {
+      "user": [
+        "priyanga220@gmail.com"
+      ],
+      "login_at": "2024-06-23T07:33:59.453Z",
+      "logout_at": null
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 16,
+    "fields": {
+      "user": [
+        "django-admin"
+      ],
+      "login_at": "2024-06-23T07:39:57.789Z",
+      "logout_at": "2024-06-23T07:40:51.364Z"
+    }
+  },
+  {
+    "model": "core.userstat",
+    "pk": 17,
+    "fields": {
+      "user": [
+        "django-admin"
+      ],
+      "login_at": "2024-06-23T07:40:51.367Z",
+      "logout_at": null
+    }
+  }
+]
