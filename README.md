@@ -103,12 +103,37 @@ Endpoints
 
     Implmented on rest api standards.
     
+    port : 8000 . 
+    
+    
     Endpoints are secured and need to add Authentication token as below;
     
     1. Obtain the auth_token with authentication endpoint
     2. Add Auth header:
         Header name     :   Authorization
         Header value    :   Toke <auth_token>
+        
+URIs . 
+
+1. Authentication  
+
+        HTTP Method     :   POST                                  
+
+        URI             :   api/v1/authentication/   
+        
+        Request         :       {    
+                                    "username": "django-admin",
+                                    "password": "django-admin"
+
+                                } 
+        
+        Response        :       {
+                                    "token": "5384d782a77100000003f3c14e80977f47e8659",
+                                    "user_id": 1,
+                                    "email": "test@gmail.com"
+                                }          
+
+                                                                  
         
         
     
