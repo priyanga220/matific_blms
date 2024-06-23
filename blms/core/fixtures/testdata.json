@@ -8,7 +8,7 @@
       "username": "django-admin",
       "first_name": "",
       "last_name": "",
-      "email": "priyanga220@gmail.com",
+      "email": "rtgf@gmail.com",
       "is_staff": true,
       "is_active": true,
       "date_joined": "2024-06-22T05:43:26.175Z",
@@ -22,10 +22,10 @@
       "password": "pbkdf2_sha256$720000$04dejyQIqEPCH0aeheLZMK$2PBxaUMKD4BNqQGqjVulzucdL//C7BJhI6hpwe4OKJM=",
       "last_login": null,
       "is_superuser": false,
-      "username": "priyanga220@gmail.com",
-      "first_name": "Priyanga",
-      "last_name": "Amarakoon",
-      "email": "priyanga220@gmail.com",
+      "username": "coach1",
+      "first_name": "Coach1",
+      "last_name": "Coach1",
+      "email": "coach1@gmail.com",
       "is_staff": false,
       "is_active": true,
       "date_joined": "2024-06-22T10:17:42Z",
@@ -113,7 +113,7 @@
       "object_id": 1,
       "userrole": 1,
       "user": [
-        "priyanga220@gmail.com"
+        "coach1"
       ]
     }
   },
@@ -774,7 +774,7 @@
     "pk": 15,
     "fields": {
       "user": [
-        "priyanga220@gmail.com"
+        "caoch1"
       ],
       "login_at": "2024-06-23T07:33:59.453Z",
       "logout_at": null
