@@ -215,6 +215,92 @@ URIs .
                                         "game_time": "2024-06-19 00:00:00"
                                     }
                                 ]
+                                
+5. Tournament Scoreboard
+         
+        HTTP Method     :   GET                                  
+
+        URI             :   /api/v1/tournaments/<tournamentid>/scoreboard
+        
+        Request         :   -
+        
+                            Header => Authorization : Token <tokenvalue>
+        
+        Response        :       [
+                                    {
+                                        "id": 2,
+                                        "game_level": "QU",
+                                        "teams": "tre vs tyr",
+                                        "game_status": "PL",
+                                        "game_time": "2024-06-21 00:00:00"
+                                    },
+                                    {
+                                        "id": 3,
+                                        "game_level": "QU",
+                                        "teams": "wer vs dse",
+                                        "game_status": "CR",
+                                        "game_time": "2024-06-20 00:00:00"
+                                    },
+                                    {
+                                        "id": 1,
+                                        "game_level": "QU",
+                                        "teams": "wer vs dse",
+                                        "game_status": "SC",
+                                        "game_time": "2024-06-19 00:00:00"
+                                    },
+                                    {
+                                        "id": 4,
+                                        "game_level": "QU",
+                                        "teams": "tre vs tyr",
+                                        "game_status": "CR",
+                                        "game_time": "2024-06-19 00:00:00"
+                                    }
+                                ]
+                                
+6. List teams
+         
+        HTTP Method     :   GET                                  
+
+        URI             :   /api/v1/teams
+        
+        Request         :   -
+        
+                            Header => Authorization : Token <tokenvalue>
+        
+        Response        :       [
+                                    {
+                                        "id": 1,
+                                        "name": "Black Panthers",
+                                        "displayname": "BLKP",
+                                        "slogan": "U Can't C M@",
+                                        "rank": 1
+                                    },
+                                    {
+                                        "id": 10,
+                                        "name": "Boston Celtics",
+                                        "displayname": "BSCT",
+                                        "slogan": "Yeah",
+                                        "rank": 10
+                                    },
+                                    {
+                                        "id": 9,
+                                        "name": "Country sides",
+                                        "displayname": "CSDS",
+                                        "slogan": "Yes We are",
+                                        "rank": 9
+                                    },
+                                    .
+                                    .
+                                    .
+                                    .
+                                    {
+                                        "id": 3,
+                                        "name": "West Indies Super10",
+                                        "displayname": "WIS10",
+                                        "slogan": "From Windies",
+                                        "rank": 3
+                                    }
+                                ]
            
         
     
