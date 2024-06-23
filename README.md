@@ -101,7 +101,9 @@ ER Diagram
 
 Endpoints
 
-    Implmented on rest api standards.
+    Implmented on rest api standards. Should be implmented in a stateless way, but for version 1 authentication is implmented with django auth token approch. Token is saved in db. 
+    
+        Enhancements : Implement authentication with jwt token
     
     port : 8000 . 
     
@@ -119,7 +121,7 @@ URIs .
 
         HTTP Method     :   POST                                  
 
-        URI             :   api/v1/authentication/   
+        URI             :   /api/v1/authentication/   
         
         Request         :       {    
                                     "username": "django-admin",
@@ -132,9 +134,88 @@ URIs .
                                     "user_id": 1,
                                     "email": "test@gmail.com"
                                 }          
+                                
+2. Logout
+         
+        HTTP Method     :   POST                                  
 
-                                                                  
+        URI             :   /api/v1/logout/   
         
+        Request         :   No Body
+        
+                            Header => Authorization : Token <tokenvalue>
+        
+        Response        :       {
+                                    "success": "Successfully logged out."
+                                } 
+                                
+                                
+3. List Tournaments
+         
+        HTTP Method     :   GET                                  
+
+        URI             :   /api/v1/tournaments/ 
+        
+        Request         :   -
+        
+                            Header => Authorization : Token <tokenvalue>
+        
+        Response        :       [
+                                    {
+                                        "id": 2,
+                                        "name": "Shgner Cup",
+                                        "identifier": "Shgner2024",
+                                        "mascot": "Mow Mow"
+                                    },
+                                    {
+                                        "id": 1,
+                                        "name": "Wilson International World Cup",
+                                        "identifier": "WilsCup2024",
+                                        "mascot": "Crazy Frog"
+                                    }
+                                ]
+                                
+4. List Games for Tournament
+         
+        HTTP Method     :   GET                                  
+
+        URI             :   /api/v1/tournaments/<tournamentid>/games
+        
+        Request         :   -
+        
+                            Header => Authorization : Token <tokenvalue>
+        
+        Response        :       [
+                                    {
+                                        "id": 2,
+                                        "game_level": "QU",
+                                        "teams": "tre vs tyr",
+                                        "game_status": "PL",
+                                        "game_time": "2024-06-21 00:00:00"
+                                    },
+                                    {
+                                        "id": 3,
+                                        "game_level": "QU",
+                                        "teams": "wer vs dse",
+                                        "game_status": "CR",
+                                        "game_time": "2024-06-20 00:00:00"
+                                    },
+                                    {
+                                        "id": 1,
+                                        "game_level": "QU",
+                                        "teams": "wer vs dse",
+                                        "game_status": "SC",
+                                        "game_time": "2024-06-19 00:00:00"
+                                    },
+                                    {
+                                        "id": 4,
+                                        "game_level": "QU",
+                                        "teams": "tre vs tyr",
+                                        "game_status": "CR",
+                                        "game_time": "2024-06-19 00:00:00"
+                                    }
+                                ]
+           
         
     
 
