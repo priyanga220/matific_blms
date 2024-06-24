@@ -97,6 +97,12 @@ Entity Model
             Userrole        :   Select the Role
             
             User            :   Select the user which needs to assign the role
+
+
+    ER Diagram
+
+    ![BLMS_ER_Diagram](screenshots/ER_diagram.png) 
+    
     
    ![Admin Panel - Assign Role to User](screenshots/DJ_admin_user_roles.png) 
     
