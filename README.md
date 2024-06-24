@@ -73,6 +73,8 @@ DB : SQLite
     
         * django admin panel  ==> http://localhost:8000/admin/ 
         (username : django-admin, password : django-admin)
+
+![Admin Panel](screenshots/DJ_administration.png)
     
     
 ER Diagram 
