@@ -585,7 +585,7 @@ Postman Test Collection:
     
 Enhancements 
 
-Below poitns are identified and can be implemented as enhancements
+Below points are identified and can be implemented as enhancements
 
     1. Auth flow -> Stateles (REST api Standards) with JWT token authentication -> djangorestframework_simplejwt
     2. Dependancy injection -> DI should be implmented (SOLID Principles) 
