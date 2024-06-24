@@ -118,6 +118,8 @@ Endpoints
     2. Add Auth header:
         Header name     :   Authorization
         Header value    :   Toke <auth_token>
+
+![BLMS API Flows](screenshots/API_Flow.png) 
         
 URIs . 
 
