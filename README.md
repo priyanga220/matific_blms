@@ -80,23 +80,24 @@ DB : SQLite
 Project Structure
 
  ![BLMS Project Structure](screenshots/Project_structure.png)   
+ 
 
-blms - Project Main application folder
-core - app for core application artifacts including entities and enums
-        * enums - enums for entity model
-        * migrations - entity schema migrations
-        * fixtures - Test data json file
-        * models - entity model
+        blms - Project Main application folder
+        core - app for core application artifacts including entities and enums
+            * enums - enums for entity model
+            * migrations - entity schema migrations
+            * fixtures - Test data json file
+            * models - entity model
         
         
 
-restapi - app for api implmentation
-        * decorators - decorater definitions, defined for autherization handling
-        * serializers - all the serializers for api request / response handling
-        * services - business logics
-        * views - controller views for URIs
+        restapi - app for api implmentation
+            * decorators - decorater definitions, defined for autherization handling
+            * serializers - all the serializers for api request / response handling
+            * services - business logics
+            * views - controller views for URIs
 
-        urls.py file has all the mappings for URI paths to the views
+            urls.py file has all the mappings for URI paths to the views
     
 Entity Model 
 
