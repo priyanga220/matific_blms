@@ -101,7 +101,7 @@ ER Diagram
 
 Endpoints
 
-    Implmented on rest api standards. Should be implmented in a stateless way, but for version 1 authentication is implmented with django auth token approch. Token is saved in db. 
+    Implmented on rest api standards. Should be implmented in a stateless way, but for version 1 authentication is implmented with django auth token approch (for the purpose of login times / online users etc). Token is saved in db. 
     
         Enhancements : Implement authentication with jwt token
     
@@ -534,6 +534,17 @@ Postman Test Collection:
     2. Use blms_local environment 
     3. Set the "host:p" appropriatly. 
     4. Set the token recieved from authentication url into "auth_token".
+    
+    
+Enhancements 
+
+Below poitns are identified and can be implemented as enhancements
+
+    1. Auth flow -> Stateles (REST api Standards) with JWT token authentication -> djangorestframework_simplejwt
+    2. Dependancy injection -> DI should be implmented (SOLID Principles) 
+        Tried to implment by integrating with "Django-dependency-injector", but configuration needs time
+        
+    3. logging mechanism - Not focused on any logging in version 1 implementation, Need to implement. 
     
            
         
