@@ -101,11 +101,11 @@ Project Structure
     
 Entity Model 
 
-    * core_* tables for blms application data (core_tournament, core_team, core_game, core_coach, core_player, core_playerstat, core_gamestat)
-    
-    * auth_* tables from django framework for user and authentication management combined with core_userrole and core_userstat tables
+core_* tables for blms application data (core_tournament, core_team, core_game, core_coach, core_player, core_playerstat, core_gamestat)
 
-    For User <-> Role assignment (Role has direct Link to auth_user through User field and Generic ForiegnKey to [User | Coach | Player] tables 
+auth_* tables from django framework for user and authentication management combined with core_userrole and core_userstat tables
+
+For User <-> Role assignment (Role has direct Link to auth_user through User field and Generic ForiegnKey to [User | Coach | Player] tables 
     
         1. Create (add) the user from django-admin panel -> this will create the auth_user entry
         2. Add new entry in User roles table
