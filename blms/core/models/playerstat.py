@@ -12,4 +12,4 @@ class PlayerStat(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
-        return self.display_name
+        return f"{self.player} - {self.game.date} - {self.score}"
