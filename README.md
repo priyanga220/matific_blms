@@ -12,7 +12,7 @@
     
     2. Authentication and autherization
     * Retrive auth token with username / password
-    * Token based autherization for endpoits (Authorization header token)
+    * Token based autherization for endponits (Authorization header token)
     * Team data restrictiononly for coach of the team
     * User stat view for admin
     
