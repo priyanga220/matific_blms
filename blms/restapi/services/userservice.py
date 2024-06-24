@@ -1,8 +1,6 @@
 from core.models import UserStat
 from django.db.models import Sum, Count, F
 from rest_framework.authtoken.models import Token
-from django.contrib.auth.models import User
-from django.conf import settings
 from django.http import Http404
 from datetime import datetime
 
@@ -30,11 +28,12 @@ class UserService:
             userStat.logout_at = datetime.now()
             userStat.save()
 
+    # Return user stats with total logins and total login time for users
+    # totoallogin - count the userstat entries group by userid
+    # totaltime - Sum the deference of (logout_at - login_at) deltas group by user_id
+    # needs further enhancements on this logic if no logout_at it defaults to current time etc
     def loadUserstats(self):
-        # samples = UserStat.objects.values("user__id").annotate(
-        #    aliquots=Count("user__id"), times=F("logout_at") - F("login_at")
-        # )
-        samples = (
+        userstats = (
             UserStat.objects.all()
             .values(
                 "user__id",
@@ -49,7 +48,7 @@ class UserService:
             )
             .order_by("totallogins")
         )
-        return samples
+        return userstats
 
     def loadOnlineUsers(self):
         return [token.user for token in Token.objects.all()]
@@ -59,10 +58,3 @@ class UserService:
             return UserStat.objects.get(pk=pk)
         except UserStat.DoesNotExist:
             raise Http404
-
-    def convert_timedelta(duration):
-        days, seconds = duration.days, duration.seconds
-        hours = days * 24 + seconds // 3600
-        minutes = (seconds % 3600) // 60
-        seconds = seconds % 60
-        return hours, minutes, seconds

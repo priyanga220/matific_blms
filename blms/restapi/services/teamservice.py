@@ -33,6 +33,8 @@ class TeamService:
         team = self.get_object(teamId)
         return team.players
 
+    # return players for a team which has the average score across the team above or in
+    # the given percentile
     def loadPlayerListForTeamAboveGivenPercentileScore(
         self, teamId: int, percent: int
     ) -> list[Player]:
@@ -40,6 +42,8 @@ class TeamService:
         percent_i = int(percent)
         players = self.loadPlayerListForTeam(teamId).all()
         playerAvgScoreMap = {}
+        # calculate the average score of players and keep as a map [playerId : avgScore]
+        # defults to zero if no stats
         for player in players:
             playerAvgScoreMap[player.id] = (
                 PlayerStat.objects.filter(player_id=player.id).aggregate(Avg("score"))[
@@ -48,9 +52,11 @@ class TeamService:
                 or 0
             )
 
+        # calculate the percentile score for the given percentile for all average scores of team
         percentile_score: float = np.percentile(
             list(playerAvgScoreMap.values()), percent_i
         )
+        # get the players with average score above or equal to the percentile score
         abovepercentile_playerids = list(
             pid for (pid, avg) in playerAvgScoreMap.items() if avg >= percentile_score
         )

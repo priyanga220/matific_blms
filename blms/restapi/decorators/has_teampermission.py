@@ -3,6 +3,10 @@ from django.http import HttpResponseForbidden
 from core.models import UserRole, Team
 
 
+# if the request user is a coach (Role is coach) this checks the coach is
+# assigned to the specified team, if yes return the requested view
+# If not return forbiddon (403)
+# if the user is not coach return the requested view
 def has_teampermission():
     def decorator(view_func):
         @wraps(view_func)

@@ -14,40 +14,40 @@ from ..services import TeamService
 
 
 class TeamList(APIView):
-    team_service = TeamService()
+    teamservice = TeamService()
 
     @method_decorator(has_permission([UserRole.ADMIN, UserRole.COACH]))
     def get(self, request, format=None):
-        serializer = TeamSerializer(self.team_service.loadTeams(), many=True)
+        serializer = TeamSerializer(self.teamservice.loadTeams(), many=True)
         return Response(serializer.data)
 
 
 class TeamDetail(APIView):
-    team_service = TeamService()
+    teamservice = TeamService()
 
     @method_decorator(has_permission([UserRole.ADMIN, UserRole.COACH]))
     @method_decorator(has_teampermission())
     def get(self, request, pk: int, format=None):
-        serializer = TeamViewSerializer(data=self.team_service.loadTeamView(pk))
+        serializer = TeamViewSerializer(data=self.teamservice.loadTeamView(pk))
         if serializer.is_valid():
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
 
 
 class PlayerListForTeam(APIView):
-    team_service = TeamService()
+    teamservice = TeamService()
 
     @method_decorator(has_permission([UserRole.ADMIN, UserRole.COACH]))
     @method_decorator(has_teampermission())
     def get(self, request, pk: int, format=None):
-        players: list[Player] = self.team_service.loadPlayerListForTeam(pk)
+        players: list[Player] = self.teamservice.loadPlayerListForTeam(pk)
         serializer = PlayerSerializer(players, many=True)
         return Response(serializer.data)
 
     @method_decorator(has_permission([UserRole.ADMIN]))
     def post(self, request, pk: int, format=None):
         serializer = TeamPlayerIdSerializer(request.data)
-        player = self.team_service.addPlayerToTheTeam(
+        player = self.teamservice.addPlayerToTheTeam(
             pk, serializer.data.get("player_id")
         )
         serializer = PlayerSerializer(player)
@@ -57,14 +57,14 @@ class PlayerListForTeam(APIView):
 # get all players in the team who has average score in given percentile,
 # if percetile not given, default to 90th and return all above 90
 class PlayerListWithAveragePercentile(APIView):
-    team_service = TeamService()
+    teamservice = TeamService()
 
     @method_decorator(has_permission([UserRole.COACH]))
     @method_decorator(has_teampermission())
     def get(self, request, pk: int, format=None):
         above_percentile = request.GET.get("percentile", 90)
         players: list[Player] = (
-            self.team_service.loadPlayerListForTeamAboveGivenPercentileScore(
+            self.teamservice.loadPlayerListForTeamAboveGivenPercentileScore(
                 pk, above_percentile
             )
         )
