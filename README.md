@@ -13,7 +13,7 @@
     2. Authentication and autherization
     * Retrive auth token with username / password
     * Token based autherization for endponits (Authorization header token)
-    * Team data restrictiononly for coach of the team
+    * Team data restriction only for coach of the team
     * User stat view for admin
     
 How to run  
@@ -169,6 +169,9 @@ URIs .
                                     "email": "test@gmail.com"
                                 }          
                                 
+        Errors          :   400 | Bad request --> if invalid / missing credentials
+
+
 2. Logout
          
         HTTP Method     :   POST                                  
@@ -182,6 +185,16 @@ URIs .
         Response        :       {
                                     "success": "Successfully logged out."
                                 } 
+                                
+        Errors          :   401 | Unauthorized  --> if invalid Token/ missing Auth header
+
+
+
+<b>For All the Other Endpoints</b> => 
+
+        Erros           :   401 | Unauthorized  --> if invalid Token / missing Auth header
+        
+                            403 | Forbbiden     --> if no permission for the resource | If a Coach accessed other team data      
                                 
                                 
 3. List Tournaments
