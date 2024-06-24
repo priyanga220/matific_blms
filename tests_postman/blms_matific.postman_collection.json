@@ -1,0 +1,362 @@
+{
+	"info": {
+		"_postman_id": "3ace0d78-4fbf-434e-b2e8-47713b140cdd",
+		"name": "blms_matific",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31848743"
+	},
+	"item": [
+		{
+			"name": "authorize_get_token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"username\": \"django-admin\",\n    \"password\": \"django-admin\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host:p}}/api/v1/authentication/",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authentication",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth_logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/logout/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tournaments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host:p}}/api/v1/tournaments",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tournaments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tournament_games",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host:p}}/api/v1/tournaments/1/games",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tournaments",
+						"1",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "scoreborad",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host:p}}/api/v1/tournaments/1/scoreboard",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tournaments",
+						"1",
+						"scoreboard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "teams",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host:p}}/api/v1/teams",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "team_detils",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host:p}}/api/v1/teams/1",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"teams",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "team_players",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host:p}}/api/v1/teams/1/players",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"teams",
+						"1",
+						"players"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "team_avgpercentile_players",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host:p}}/api/v1/teams/1/avgpercentileplayers/?percentile=90",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"teams",
+						"1",
+						"avgpercentileplayers",
+						""
+					],
+					"query": [
+						{
+							"key": "percentile",
+							"value": "90"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "player_details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host:p}}/api/v1/players/1",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"players",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_stats",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host:p}}/api/v1/userstats",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"userstats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "online-users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host:p}}/api/v1/userstats",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"userstats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coaches-list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host:p}}/api/v1/userstats",
+					"host": [
+						"{{host:p}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"userstats"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
