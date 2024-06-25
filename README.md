@@ -12,7 +12,7 @@
 
     2. Authentication and autherization
     * Retrive auth token with username / password
-    * Token based autherization for endponits (Authorization header token)
+    * Token based authorization for endpoints (Authorization header token)
     * Team data restriction only for coach of the team
     * User stat view for admin
 
@@ -121,13 +121,13 @@ ER Diagram
 
 Endpoints
 
-Implmented on rest api standards. Should be implmented in a stateless way, but for version 1 authentication is implmented with django auth token approch (for the purpose of login times / online users etc). Token is saved in db.
+Implmented on rest api standards. Should be implmented in a stateless way, but for version 1, authentication / authorization is implmented with django auth token approch (for the purpose of login times / online users etc). Token is saved in db.
 
-    * Enhancements : Implement authentication with jwt token
+    * Enhancements : Implement authentication / authorization with jwt token
 
     port : 8000 .
 
-Endpoints are secured and need to add Authentication token as below;
+Endpoints are secured and need to add Authorization token as below;
 
     1. Obtain the auth_token with authentication endpoint
     2. Add Auth header:
@@ -180,8 +180,6 @@ URIs .
 
                             403 | Forbbiden     --> if no permission for the resource | If a Coach accessed other team data
 
-
-
 3.  List Tournaments
 
         HTTP Method     :   GET
@@ -206,7 +204,6 @@ URIs .
                                         "mascot": "Crazy Frog"
                                     }
                                 ]
-
 
 4.  List Games for Tournament
 
@@ -249,7 +246,6 @@ URIs .
                                     }
                                 ]
 
-
 5.  Tournament Scoreboard
 
         HTTP Method     :   GET
@@ -290,7 +286,6 @@ URIs .
                                         "game_time": "2024-06-19 00:00:00"
                                     }
                                 ]
-
 
 6.  List teams
 
@@ -337,7 +332,6 @@ URIs .
                                     }
                                 ]
 
-
 7.  Team Details with average score
 
         HTTP Method     :   GET
@@ -356,7 +350,6 @@ URIs .
                                     "rank": 1,
                                     "average_score": 68.75
                                 }
-
 
 8.  List players for team
 
@@ -389,7 +382,6 @@ URIs .
                                     }
                                 ]
 
-
 9.  List players with for team whose average score is in the 90
     percentile across the team
 
@@ -416,7 +408,6 @@ URIs .
                                         }
                                     ]
 
-
 10. Player details - including avg score and no. of games played
 
         HTTP Method     :   GET
@@ -437,7 +428,6 @@ URIs .
                                     "average_score": 115.0,
                                     "num_of_games_played": 2
                                 }
-
 
 11. User stats
 
@@ -523,7 +513,6 @@ URIs .
                                     }
                                 ]
 
-
 13. Coaches list
 
         HTTP Method     :   GET
@@ -562,8 +551,6 @@ URIs .
                                     }
                                 ]
 
-
-
 Postman Test Collection:
 
     * blms_local.postman_environment.json
@@ -578,11 +565,8 @@ Enhancements
 
 Below points are identified and can be implemented as enhancements
 
-    1. Auth flow -> Stateles (REST api Standards) with JWT token authentication -> djangorestframework_simplejwt
+    1. Auth flow -> Stateles (REST api Standards) with JWT token auth -> djangorestframework_simplejwt
     2. Dependancy injection -> DI should be implmented (SOLID Principles)
         Tried to implment by integrating with "Django-dependency-injector", but seems configuration needs time
 
     3. logging mechanism - Not focused on any logging in version 1 implementation, Need to implement.
-
-
-
