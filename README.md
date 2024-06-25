@@ -9,78 +9,72 @@
     * Dashboard with game results
     * Player stats
     * Team stats
-    
+
     2. Authentication and autherization
     * Retrive auth token with username / password
     * Token based autherization for endponits (Authorization header token)
     * Team data restriction only for coach of the team
     * User stat view for admin
-    
-How to run  
 
-Python version used : 3.11.6  
+How to run
 
-DB : SQLite  
+Python version used : 3.11.6
 
+DB : SQLite
 
+1.  Checkout the repository;
 
-1. Checkout the repository;  
+    > > git clone https://github.com/priyanga220/matific_blms.git
 
-    >> git clone https://github.com/priyanga220/matific_blms.git
-    
-2. cd into the folder  
+2.  cd into the folder
 
-    >> cd matific_blms
-    
-3. Use the branch "feature/testDataWithApiAndAdminPanel" 
+    > > cd matific_blms
 
-    >> git checkout feature/testDataWithApiAndAdminPanel
-    
-4. Apply requirments
-    
-    >> pip3 install -r requirements.txt
-    
-5. CD into the Project folder (blms) and Run migrations to apply changes and to create DB 
+3.  Use the branch "feature/testDataWithApiAndAdminPanel"
 
-    >> cd blms
-    
-    >> python3 manage.py migrate 
-    (change python command based on the OS)  
-    
-    
-    This will create the required DB schema. (db.sqlite3)  
-    
-    
-6. Load the test data from "testdata.json" file. This is located in core application inside fixtures folder
+    > > git checkout feature/testDataWithApiAndAdminPanel
 
-    >> python3 manage.py loaddata core/fixtures/testdata.json
-    
+4.  Apply requirments
+
+    > > pip3 install -r requirements.txt
+
+5.  CD into the Project folder (blms) and Run migrations to apply changes and to create DB
+
+    > > cd blms
+
+    > > python3 manage.py migrate
+    > > (change python command based on the OS)
+
+    This will create the required DB schema. (db.sqlite3)
+
+6.  Load the test data from "testdata.json" file. This is located in core application inside fixtures folder
+
+    > > python3 manage.py loaddata core/fixtures/testdata.json
+
         This will create some sample data including users to test the application:
-        
+
             * Admin user - this user is django super user with application role "Admin"
                 username : django-admin, password : django-admin
-                
+
             * Role : Coach
                 username : coach1, password : Djpwd123
                 username : coach2, password : Djpwd123
-                
+
             * Role : Player
                 username : Player1, password : DJPwd123
-    
-7. Run the application
 
-    >> python3 manage.py runserver
-    
-        * django admin panel  ==> http://localhost:8000/admin/ 
+7.  Run the application
+
+    > > python3 manage.py runserver
+
+        * django admin panel  ==> http://localhost:8000/admin/
         (username : django-admin, password : django-admin)
 
-![Admin Panel](screenshots/DJ_administration.png)  
-
+![Admin Panel](screenshots/DJ_administration.png)
 
 Project Structure
 
- ![BLMS Project Structure](screenshots/Project_structure.png)   
- 
+![BLMS Project Structure](screenshots/Project_structure.png)
 
         blms - Project Main application folder
         core - app for core application artifacts including entities and enums
@@ -88,8 +82,8 @@ Project Structure
             * migrations - entity schema migrations
             * fixtures - Test data json file
             * models - entity model
-        
-        
+
+
 
         restapi - app for api implmentation
             * decorators - decorater definitions, defined for autherization handling
@@ -98,115 +92,106 @@ Project Structure
             * views - controller views for URIs
 
             urls.py file has all the mappings for URI paths to the views
-    
-Entity Model 
 
-core_* tables for blms application data (core_tournament, core_team, core_game, core_coach, core_player, core_playerstat, core_gamestat)
+Entity Model
 
-auth_* tables from django framework for user and authentication management combined with core_userrole and core_userstat tables
+core\_\* tables for blms application data (core_tournament, core_team, core_game, core_coach, core_player, core_playerstat, core_gamestat)
 
-For User <-> Role assignment (Role has direct Link to auth_user through User field and Generic ForiegnKey to [User | Coach | Player] tables 
-    
+auth\_\* tables from django framework for user and authentication management combined with core_userrole and core_userstat tables
+
+For User <-> Role assignment (User_Role has direct Link to auth_user through User field and Generic ForiegnKey to [User | Coach | Player] tables
+
         1. Create (add) the user from django-admin panel -> this will create the auth_user entry
-        2. Add new entry in User roles table
+        2. Add new entry in User_role table
             Content-type    :   For Admin role  ->   Select "Authentication and Autherization | user" option
                                 For Coach role  ->   Select "Core | coach" option
                                 For Player role ->   Select "Core | player" option
-                                
-            Object id       :   Select the relavant table entry id 
+
+            Object id       :   Select the relavant table entry id
                                 (Admin -> auth_user table , Coach -> core_coach table, Player -> core_player table)
-                
+
             Userrole        :   Select the Role
-            
+
             User            :   Select the user which needs to assign the role
-    
-    
-   
-   ER Diagram
-   ![BLMS ER Diagam](screenshots/ER_diagram.png) 
 
-   
-   ![Admin Panel - Assign Role to User](screenshots/DJ_admin_user_roles.png) 
-    
-    
+ER Diagram
+![BLMS ER Diagam](screenshots/ER_diagram.png)
 
+![Admin Panel - Assign Role to User](screenshots/DJ_admin_user_roles.png)
 
 Endpoints
 
-Implmented on rest api standards. Should be implmented in a stateless way, but for version 1 authentication is implmented with django auth token approch (for the purpose of login times / online users etc). Token is saved in db. 
-    
+Implmented on rest api standards. Should be implmented in a stateless way, but for version 1 authentication is implmented with django auth token approch (for the purpose of login times / online users etc). Token is saved in db.
+
     * Enhancements : Implement authentication with jwt token
-    
-    port : 8000 . 
-    
-    
+
+    port : 8000 .
+
 Endpoints are secured and need to add Authentication token as below;
-    
+
     1. Obtain the auth_token with authentication endpoint
     2. Add Auth header:
         Header name     :   Authorization
-        Header value    :   Toke <auth_token>
+        Header value    :   Token <auth_token>
 
-![BLMS API Flows](screenshots/API_Flow.png) 
-        
-URIs . 
+![BLMS API Flows](screenshots/API_Flow.png)
 
-1. Authentication  
+URIs .
 
-        HTTP Method     :   POST                                  
+1.  Authentication
 
-        URI             :   /api/v1/authentication/   
-        
-        Request         :       {    
+        HTTP Method     :   POST
+
+        URI             :   /api/v1/authentication/
+
+        Request         :       {
                                     "username": "django-admin",
                                     "password": "django-admin"
 
-                                } 
-        
+                                }
+
         Response        :       {
                                     "token": "5384d782a77100000003f3c14e80977f47e8659",
                                     "user_id": 1,
                                     "email": "test@gmail.com"
-                                }          
-                                
+                                }
+
         Errors          :   400 | Bad request --> if invalid / missing credentials
 
+2.  Logout
 
-2. Logout
-         
-        HTTP Method     :   POST                                  
+        HTTP Method     :   POST
 
-        URI             :   /api/v1/logout/   
-        
+        URI             :   /api/v1/logout/
+
         Request         :   No Body
-        
+
                             Header => Authorization : Token <tokenvalue>
-        
+
         Response        :       {
                                     "success": "Successfully logged out."
-                                } 
-                                
+                                }
+
         Errors          :   401 | Unauthorized  --> if invalid Token/ missing Auth header
 
+<b>For All the Other Endpoints</b> =>
+
+        Errors          :   401 | Unauthorized  --> if invalid Token / missing Auth header
+
+                            403 | Forbbiden     --> if no permission for the resource | If a Coach accessed other team data
 
 
-<b>For All the Other Endpoints</b> => 
 
-        Erros           :   401 | Unauthorized  --> if invalid Token / missing Auth header
-        
-                            403 | Forbbiden     --> if no permission for the resource | If a Coach accessed other team data      
-                                
-                                
-3. List Tournaments
-         
-        HTTP Method     :   GET                                  
+3.  List Tournaments
 
-        URI             :   /api/v1/tournaments/ 
-        
+        HTTP Method     :   GET
+
+        URI             :   /api/v1/tournaments/
+
         Request         :   -
-        
+
                             Header => Authorization : Token <tokenvalue>
-        
+
         Response        :       [
                                     {
                                         "id": 2,
@@ -221,17 +206,18 @@ URIs .
                                         "mascot": "Crazy Frog"
                                     }
                                 ]
-                                
-4. List Games for Tournament
-         
-        HTTP Method     :   GET                                  
+
+
+4.  List Games for Tournament
+
+        HTTP Method     :   GET
 
         URI             :   /api/v1/tournaments/<tournamentid>/games
-        
+
         Request         :   -
-        
+
                             Header => Authorization : Token <tokenvalue>
-        
+
         Response        :       [
                                     {
                                         "id": 2,
@@ -262,17 +248,18 @@ URIs .
                                         "game_time": "2024-06-19 00:00:00"
                                     }
                                 ]
-                                
-5. Tournament Scoreboard
-         
-        HTTP Method     :   GET                                  
+
+
+5.  Tournament Scoreboard
+
+        HTTP Method     :   GET
 
         URI             :   /api/v1/tournaments/<tournamentid>/scoreboard
-        
+
         Request         :   -
-        
+
                             Header => Authorization : Token <tokenvalue>
-        
+
         Response        :       [
                                     {
                                         "id": 2,
@@ -303,17 +290,18 @@ URIs .
                                         "game_time": "2024-06-19 00:00:00"
                                     }
                                 ]
-                                
-6. List teams
-         
-        HTTP Method     :   GET                                  
+
+
+6.  List teams
+
+        HTTP Method     :   GET
 
         URI             :   /api/v1/teams
-        
+
         Request         :   -
-        
+
                             Header => Authorization : Token <tokenvalue>
-        
+
         Response        :       [
                                     {
                                         "id": 1,
@@ -348,17 +336,18 @@ URIs .
                                         "rank": 3
                                     }
                                 ]
-                                
-7. Team Details with average score
-         
-        HTTP Method     :   GET                                  
+
+
+7.  Team Details with average score
+
+        HTTP Method     :   GET
 
         URI             :   /api/v1/teams/<teamid>
-        
+
         Request         :   -
-        
+
                             Header => Authorization : Token <tokenvalue>
-        
+
         Response        :       {
                                     "teamid": 1,
                                     "name": "Black Panthers",
@@ -367,17 +356,18 @@ URIs .
                                     "rank": 1,
                                     "average_score": 68.75
                                 }
-                                
-8. List players for team
-         
-        HTTP Method     :   GET                                  
+
+
+8.  List players for team
+
+        HTTP Method     :   GET
 
         URI             :   /api/v1/teams/<teamid>/players
-        
+
         Request         :   -
-        
+
                             Header => Authorization : Token <tokenvalue>
-        
+
         Response        :       [
                                     {
                                         "id": 1,
@@ -398,45 +388,47 @@ URIs .
                                         "rank": null
                                     }
                                 ]
-                                
-8. List players with for team whose average score is in the 90
-percentile across the team
-         
-        HTTP Method     :   GET                                  
 
-        URI             :   /api/v1/teams/<teamid>/avgpercentileplayers/?percentile=<percentilevalue>
-        
-                            NOTE : percentile query param is Optional [default=90]
-        
-        Request         :   -
-        
-                            Header => Authorization : Token <tokenvalue>
-                            
-                            Query parameter => percentile  : Optional, if not provide it defaults to 90th percentile
-                                        
-                                            
-        
-        Response        :       [
-                                    {
-                                        "id": 1,
-                                        "display_name": "Deems W.",
-                                        "height": 6.8,
-                                        "rank": 10
-                                    }
-                                ]
-                                
-9. Player details - including avg score and no. of games played
-         
-        HTTP Method     :   GET                                  
+
+9.  List players with for team whose average score is in the 90
+    percentile across the team
+
+            HTTP Method     :   GET
+
+            URI             :   /api/v1/teams/<teamid>/avgpercentileplayers/?percentile=<percentilevalue>
+
+                                NOTE : percentile query param is Optional [default=90]
+
+            Request         :   -
+
+                                Header => Authorization : Token <tokenvalue>
+
+                                Query parameter => percentile  : Optional, if not provide it defaults to 90th percentile
+
+
+
+            Response        :       [
+                                        {
+                                            "id": 1,
+                                            "display_name": "Deems W.",
+                                            "height": 6.8,
+                                            "rank": 10
+                                        }
+                                    ]
+
+
+10. Player details - including avg score and no. of games played
+
+        HTTP Method     :   GET
 
         URI             :   /api/v1/players/<playerid>
-        
+
         Request         :   -
-        
+
                             Header => Authorization : Token <tokenvalue>
-                                                            
-                                            
-        
+
+
+
         Response        :       {
                                     "playerid": 1,
                                     "name": "Will Deems",
@@ -445,19 +437,20 @@ percentile across the team
                                     "average_score": 115.0,
                                     "num_of_games_played": 2
                                 }
-                                
-8. User stats
-         
-        HTTP Method     :   GET                                  
+
+
+11. User stats
+
+        HTTP Method     :   GET
 
         URI             :   /api/v1/userstats
-        
+
         Request         :   -
-        
+
                             Header => Authorization : Token <tokenvalue>
-                                        
-                                            
-        
+
+
+
         Response        :       [
                                     {
                                         "userid": "2",
@@ -496,19 +489,19 @@ percentile across the team
                                         "totaltime": "13:53:33.182000"
                                     }
                                 ]
-    
-9. Online Users
-         
-        HTTP Method     :   GET                                  
+
+12. Online Users
+
+        HTTP Method     :   GET
 
         URI             :   /api/v1/onlineusers
-        
+
         Request         :   -
-        
+
                             Header => Authorization : Token <tokenvalue>
-                                        
-                                            
-        
+
+
+
         Response        :       [
                                     {
                                         "first_name": "Dh",
@@ -529,19 +522,20 @@ percentile across the team
                                         "username": "django-admin"
                                     }
                                 ]
-                                
-10. Coaches list
-         
-        HTTP Method     :   GET                                  
+
+
+13. Coaches list
+
+        HTTP Method     :   GET
 
         URI             :   /api/v1/coaches
-        
+
         Request         :   -
-        
+
                             Header => Authorization : Token <tokenvalue>
-                                        
-                                            
-        
+
+
+
         Response        :      [
                                     {
                                         "name": "Dave Wilson",
@@ -567,8 +561,6 @@ percentile across the team
                                         "created_date": "2024-06-19T06:49:06.173000Z"
                                     }
                                 ]
-                                
-                                
 
 
 
@@ -576,29 +568,21 @@ Postman Test Collection:
 
     * blms_local.postman_environment.json
     * blms_matific.postman_collection.json
-    
+
     1. Import the collection and environment into postman
-    2. Use blms_local environment 
-    3. Set the "host:p" appropriatly. 
+    2. Use blms_local environment
+    3. Set the "host:p" appropriatly.
     4. Set the token recieved from authentication url into "auth_token".
-    
-    
-Enhancements 
+
+Enhancements
 
 Below points are identified and can be implemented as enhancements
 
     1. Auth flow -> Stateles (REST api Standards) with JWT token authentication -> djangorestframework_simplejwt
-    2. Dependancy injection -> DI should be implmented (SOLID Principles) 
-        Tried to implment by integrating with "Django-dependency-injector", but configuration needs time
-        
-    3. logging mechanism - Not focused on any logging in version 1 implementation, Need to implement. 
-    
-           
-        
-    
+    2. Dependancy injection -> DI should be implmented (SOLID Principles)
+        Tried to implment by integrating with "Django-dependency-injector", but seems configuration needs time
 
-    
-    
-    
-    
-    
+    3. logging mechanism - Not focused on any logging in version 1 implementation, Need to implement.
+
+
+
