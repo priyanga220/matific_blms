@@ -12,7 +12,7 @@
     
     2. Authentication and autherization
     * Retrive auth token with username / password
-    * Token based autherization for endponits (Authorization header token)
+    * Token based authorization for endpoints (Authorization header token)
     * Team data restriction only for coach of the team
     * User stat view for admin
     
@@ -133,14 +133,14 @@ For User <-> Role assignment (User_Role has direct Link to auth_user through Use
 
 Endpoints
 
-Implmented on rest api standards. Should be implmented in a stateless way, but for version 1 authentication is implmented with django auth token approch (for the purpose of login times / online users etc). Token is saved in db. 
+Implmented on rest api standards. Should be implmented in a stateless way, but for version 1, authentication / authorization is implmented with django auth token approch (for the purpose of login times / online users etc). Token is saved in db. 
     
-    * Enhancements : Implement authentication with jwt token
+    * Enhancements : Implement authentication / authorization with jwt token
     
     port : 8000 . 
     
     
-Endpoints are secured and need to add Authentication token as below;
+Endpoints are secured and need to add Authorization token as below;
     
     1. Obtain the auth_token with authentication endpoint
     2. Add Auth header:
@@ -587,7 +587,7 @@ Enhancements
 
 Below points are identified and can be implemented as enhancements
 
-    1. Auth flow -> Stateles (REST api Standards) with JWT token authentication -> djangorestframework_simplejwt
+    1. Auth flow -> Stateles (REST api Standards) with JWT token auth -> djangorestframework_simplejwt
     2. Dependancy injection -> DI should be implmented (SOLID Principles) 
         Tried to implment by integrating with "Django-dependency-injector", but seems configuration needs time
         
