@@ -105,10 +105,10 @@ core_* tables for blms application data (core_tournament, core_team, core_game, 
 
 auth_* tables from django framework for user and authentication management combined with core_userrole and core_userstat tables
 
-For User <-> Role assignment (Role has direct Link to auth_user through User field and Generic ForiegnKey to [User | Coach | Player] tables 
+For User <-> Role assignment (User_Role has direct Link to auth_user through User field and Generic ForiegnKey to [User | Coach | Player] tables 
     
         1. Create (add) the user from django-admin panel -> this will create the auth_user entry
-        2. Add new entry in User roles table
+        2. Add new entry in User_role table
             Content-type    :   For Admin role  ->   Select "Authentication and Autherization | user" option
                                 For Coach role  ->   Select "Core | coach" option
                                 For Player role ->   Select "Core | player" option
@@ -145,7 +145,7 @@ Endpoints are secured and need to add Authentication token as below;
     1. Obtain the auth_token with authentication endpoint
     2. Add Auth header:
         Header name     :   Authorization
-        Header value    :   Toke <auth_token>
+        Header value    :   Token <auth_token>
 
 ![BLMS API Flows](screenshots/API_Flow.png) 
         
@@ -192,7 +192,7 @@ URIs .
 
 <b>For All the Other Endpoints</b> => 
 
-        Erros           :   401 | Unauthorized  --> if invalid Token / missing Auth header
+        Errors          :   401 | Unauthorized  --> if invalid Token / missing Auth header
         
                             403 | Forbbiden     --> if no permission for the resource | If a Coach accessed other team data      
                                 
@@ -589,7 +589,7 @@ Below points are identified and can be implemented as enhancements
 
     1. Auth flow -> Stateles (REST api Standards) with JWT token authentication -> djangorestframework_simplejwt
     2. Dependancy injection -> DI should be implmented (SOLID Principles) 
-        Tried to implment by integrating with "Django-dependency-injector", but configuration needs time
+        Tried to implment by integrating with "Django-dependency-injector", but seems configuration needs time
         
     3. logging mechanism - Not focused on any logging in version 1 implementation, Need to implement. 
     
